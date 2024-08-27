@@ -1,0 +1,11 @@
+<div
+  *ngIf="animals?.length"
+  class="animal-list"
+>
+  <app-animal
+    *ngFor="let animal of animals"
+    class="animal-list__item"
+    [animal]="animal"
+    [showAdoptButton]="true"
+  ></app-animal>
+</div>

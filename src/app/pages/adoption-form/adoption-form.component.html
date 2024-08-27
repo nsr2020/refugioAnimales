@@ -1,0 +1,135 @@
+<div class="adoption">
+  <div
+    *ngIf="adoptionForm"
+    class="adoption__form"
+  >
+    <form
+      class="form"
+      [formGroup]="adoptionForm"
+      (submit)="adoptAnimal()"
+    >
+      <div class="form__field">
+        <label class="form__label" for="name">Nombre</label>
+        <input
+          class="form__input"
+          [ngClass]="{
+            'form__input--error': adoptionForm.get('name')?.invalid && adoptionForm.get('name')?.touched
+          }"
+          formControlName="name"
+          placeholder="Introduce tu nombre"
+          id="name"
+          type="text"
+        />
+        <div
+          *ngIf="adoptionForm.get('name')?.invalid && adoptionForm.get('name')?.touched"
+          class="form__errors"
+        >
+          <p
+            class="form__error"
+          >El nombre es obligatorio</p>
+        </div>
+      </div>
+      <div class="form__field">
+        <label class="form__label" for="surname">Apellidos</label>
+        <input
+          class="form__input"
+          [ngClass]="{
+            'form__input--error': adoptionForm.get('surname')?.invalid && adoptionForm.get('surname')?.touched
+          }"
+          formControlName="surname"
+          placeholder="Introduce tus apellidos"
+          id="surname"
+          type="text"
+        />
+        <div
+          *ngIf="adoptionForm.get('surname')?.invalid && adoptionForm.get('surname')?.touched"
+          class="form__errors"
+        >
+          <p
+            class="form__error"
+          >Los apellidos son obligatorios</p>
+        </div>
+      </div>
+      <div class="form__field">
+        <label class="form__label" for="dni">DNI</label>
+        <input
+          class="form__input"
+          [ngClass]="{
+            'form__input--error': adoptionForm.get('dni')?.invalid && adoptionForm.get('dni')?.touched
+          }"
+          formControlName="dni"
+          placeholder="Introduce tu DNI"
+          id="dni"
+          type="text"
+        />
+        <div class="form__errors" *ngIf="adoptionForm.get('dni')?.invalid && adoptionForm.get('dni')?.touched">
+          <p
+            *ngIf="adoptionForm.get('dni')?.errors?.['required']"
+            class="form__error"
+          >El DNI es obligatorio</p>
+          <p
+            *ngIf="adoptionForm.get('dni')?.errors?.['invalidDNI']"
+            class="form__error"
+          >El DNI no tiene un formato válido</p>
+        </div>
+      </div>
+      <div class="form__field">
+        <label class="form__label" for="age">Edad</label>
+        <input
+          class="form__input"
+          [ngClass]="{
+            'form__input--error': adoptionForm.get('age')?.invalid && adoptionForm.get('age')?.touched
+          }"
+          formControlName="age"
+          id="age"
+          type="number"
+        />
+        <div
+          *ngIf="adoptionForm.get('age')?.invalid && adoptionForm.get('age')?.touched"
+          class="form__errors"
+        >
+          <p
+            *ngIf="adoptionForm.get('age')?.errors?.['required']"
+            class="form__error"
+          >La edad es obligatoria</p>
+          <p
+            *ngIf="adoptionForm.get('age')?.errors?.['max']"
+            class="form__error"
+          >La edad no puede ser mayor de 100 años</p>
+       </div>
+      </div>
+      <div class="form__checkbox">
+        <input
+          class="form__checkbox-input"
+          formControlName="moreAnimals"
+          id="home-animals"
+          type="checkbox"
+        />
+        <label class="form__checkbox-label" for="home-animals">¿Tienes más animales en casa?</label>
+      </div>
+      <div
+        *ngIf="adoptionForm.get('moreAnimals')?.value"
+        class="form__field--full"
+      >
+        <label class="form__label" for="animals-info">Información de tus animales</label>
+        <textarea
+          class="form__textarea"
+          formControlName="animalsInfo"
+          placeholder="Hablanos del resto de tus animales para que sepamos si la adopción puede llevarse a cabo."
+          id="animals-info"
+        ></textarea>
+      </div>
+      <button
+        class="form__button"
+        type="submit"
+      >Enviar</button>
+    </form>
+  </div>
+  <app-animal
+    *ngIf="(animal$ | async) as animal"
+    class="adoption__animal"
+    [animal]="animal"
+    [showAdoptButton]="false"
+    [simplifiedData]="true"
+  ></app-animal>
+</div>

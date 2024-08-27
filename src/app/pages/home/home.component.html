@@ -1,0 +1,11 @@
+<div class="home">
+  <img class="home__background" src="assets/home-background.jpeg" />
+  <div class="home__slogan">
+    <h3 class="slogan__title">Roar out loud and save animals.</h3>
+    <p class="slogan__text">Nuestra misión es salvar a los animales y darles un hogar en el que puedan volver a ser felices. Ayúdanos en nuestra tarea, ¡Adopta!</p>
+  </div>
+  <div class="home__animals">
+    <h3 class="animals__title">Nuestros animales más ancianos</h3>
+    <app-animal-list class="animals__list" [animals]="oldAnimals$ | async"></app-animal-list>
+  </div>
+</div>

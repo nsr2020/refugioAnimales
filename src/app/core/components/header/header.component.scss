@@ -1,0 +1,33 @@
+.header {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  border-bottom: 1px solid #ADA9A9;
+
+  &__logo {
+    height: 54px;
+    cursor: pointer;
+  }
+
+  &__link {
+    font-size: 16px;
+    text-decoration: none;
+    color: black;
+
+    &--active {
+      color: #3636D4;
+      text-decoration: underline;
+    }
+  }
+
+  &__button {
+    height: 36px;
+    font-size: 16px;
+    border: 1px solid #3636D4;
+    background-color: #3636D4;
+    color: white;
+    padding: 10px 40px;
+  }
+}

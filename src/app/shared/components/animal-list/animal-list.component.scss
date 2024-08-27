@@ -1,0 +1,15 @@
+.animal-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: start;
+  margin: 0 auto;
+
+  &__item {
+    width: 320px;
+    height: 480px;
+    display: block;
+    margin-right: 30px;
+    margin-bottom: 42px;
+  }
+}

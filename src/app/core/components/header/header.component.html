@@ -1,0 +1,13 @@
+<div class="header">
+  <img src="assets/logo.png" alt="logo" class="header__logo" (click)="goToHome()" />
+  <a
+    class="header__link"
+    [routerLink]="['animals']"
+    routerLinkActive="header__link--active"
+    [routerLinkActiveOptions]="{exact: true}"
+  >Nuestros animales</a>
+  <button
+    class="header__button"
+    (click)="goToAdoptPage()"
+  >Adopta</button>
+</div>

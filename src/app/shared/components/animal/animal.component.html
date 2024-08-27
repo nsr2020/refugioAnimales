@@ -1,0 +1,29 @@
+<div
+  *ngIf="animal"
+  class="animal"
+>
+  <img class="animal__image" [src]="animal.imagen" />
+  <div class="animal__info">
+    <h4 class="animal__name">{{ animal.nombre }}</h4>
+    <p class="animal__description">{{ animal.descripcion }}</p>
+  </div>
+  <div
+    class="animal__data"
+    [ngClass]="{
+      'animal__data--simplified': simplifiedData
+    }"
+  >
+    <p
+      *ngIf="!simplifiedData"
+      class="animal__type"
+    >{{ animal.tipo_animal }}</p>
+    <p class="animal__age"><span class="animal__age--bold">Edad:</span> {{ animal.edad }} años</p>
+  </div>
+  <button
+    *ngIf="showAdoptButton"
+    class="animal__button"
+    (click)="adoptAnimal()"
+  >
+   Adóptame
+  </button>
+</div>

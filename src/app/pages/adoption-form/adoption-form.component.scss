@@ -1,0 +1,105 @@
+:host {
+  font-size: 14px;
+}
+
+.adoption {
+  height: 100%;
+  width: calc(100vw - 40px);
+  display: flex;
+  padding: 0 20px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #E4DCDC;
+
+  &__form {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    margin-right: 54px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    max-width: 900px;
+  }
+
+  &__animal {
+    display: block;
+    background-color: #fff;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  position: relative;
+  width: 100%;
+
+  &__field {
+    width: calc(50% - 12px);
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+
+    &:nth-of-type(2n) {
+      margin-left: 24px;
+    }
+
+    &--full {
+      width: 100%;
+    }
+  }
+
+  &__checkbox {
+    margin-bottom: 24px;
+    width: 100%;
+  }
+
+  &__label {
+    margin-bottom: 8px;
+  }
+
+  &__input,
+  &__textarea {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px;
+    border: 1px solid #ccc;
+    height: 42px;
+    padding: 0 10px;
+
+    &--error {
+      border: 1px solid #B61717;
+    }
+
+  }
+
+  &__textarea {
+    height: 120px;
+    margin-top: 8px;
+    padding: 10px;
+    width: 70%;
+  }
+
+  &__button {
+    margin-top: 20px;
+    background-color: #3636D4;
+    border: 0;
+    padding: 10px 40px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  &__errors {
+    margin-top: 12px;
+    width: 100%;
+  }
+
+  &__error {
+    color: #B61717;
+    margin-bottom: 8px;
+  }
+}
